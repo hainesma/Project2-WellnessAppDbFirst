@@ -16,7 +16,7 @@ namespace Project2_WellnessAppDbFirst
 {
     public class Startup
     {
-        string connection = "Server=.\\SQLExpress;Database=WellnessDb2;Trusted_Connection=True;ConnectRetryCount=0;";
+        string connection = "Server=.\\MSSQLSERVER01;;Database=WellnessDb2;Trusted_Connection=True;ConnectRetryCount=0;";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,12 +27,13 @@ namespace Project2_WellnessAppDbFirst
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<WellnessDb2Context>(options => options.UseSqlServer(connection));
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<WellnessDb2Context>();
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
@@ -46,7 +47,7 @@ namespace Project2_WellnessAppDbFirst
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
