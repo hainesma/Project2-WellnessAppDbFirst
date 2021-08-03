@@ -25,6 +25,7 @@ export class RecipeComponent {
   //with the wrong structure but I'm just focused on getting these calls to work, I realized the structure was wrong woops
   constructor(private api: RecipeService) {
     this.singleRecipe = this.getRecipe();
+    
   }
   
 
@@ -33,6 +34,8 @@ getRecipe():any {
   this.api.callRecipe().subscribe(result => {
     this.searchResult = result;
     this.singleRecipe = this.searchResult.hits[0].recipe;
+    this.singleRecipe.servingcalories = (this.singleRecipe.calories / this.singleRecipe.yield);
+ 
     console.log(this.singleRecipe)
     return this.singleRecipe
   })

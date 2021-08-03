@@ -41,6 +41,7 @@ export interface RecipeClass {
     url:             string;
     shareAs:         string;
     yield:           number;
+  servingcalories:   number;
     dietLabels:      DietLabel[];
     healthLabels:    string[];
     cautions:        string[];
@@ -52,7 +53,8 @@ export interface RecipeClass {
     cuisineType?:    string[];
     mealType?:       string[];
     dishType?:       string[];
-    totalNutrients:  { [key: string]: Total };
+  totalNutrients: { [key: string]: Total };
+
     totalDaily:      { [key: string]: Total };
     digest:          Digest[];
 }

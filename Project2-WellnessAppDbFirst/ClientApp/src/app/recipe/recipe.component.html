@@ -1,8 +1,19 @@
 
 
 <div>
-  <p>Recipe Label {{singleRecipe.label}}</p>
+  <p>Recipe Label: {{singleRecipe.label}}</p>
   <img src="{{singleRecipe.image}}">
-  <p>Total Calories {{singleRecipe.calories}}</p>
- 
+  <p>Total Calories: {{singleRecipe.calories}}</p>
+  <p>Servings Yield: {{singleRecipe.yield}}</p>
+  <p>Calories Per Serving: {{singleRecipe.servingcalories}}</p>
+  <p>Time to Prepare:{{singleRecipe.totalTime}}</p>
+  <a href="{{singleRecipe.url}}">Recipe Instructions from {{singleRecipe.source}}</a>
+
+  <div>
+    <p></p>
+
+  </div>
+
+  <!-- I would like to include a hidden div here that includes the nutrtional information to the provided meal though
+    I don't think doing this is in the scope of the barebones MVP the Data is available'-->
 </div>

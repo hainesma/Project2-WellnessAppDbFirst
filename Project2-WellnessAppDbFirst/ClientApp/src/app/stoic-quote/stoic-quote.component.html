@@ -1,6 +1,6 @@
 <div>
   <h2>Stoic Quote</h2>
-  <div *ngIf="quote">
+  <div *ngIf="quote[0]!==null">
     <p>"{{quote[0].body}}"</p>
     <p>{{quote[0].author}}</p>
   </div>
