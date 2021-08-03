@@ -14,7 +14,8 @@ export class RecipeService {
   public apiBase = "https://api.edamam.com/api/recipes/v2?type=public";
   /*  This is the search term we are searching we need to figure out what to do with*/
   //both search term and preference will likely need to be moved into the method call so it can be changed based on user
-  //preferences from the survey once we are ready for this
+  //preferences from the survey once we are ready for this, still waiting for User tables to be finalized before I go ahead with
+  //modifying this method call
   public searchTerm = "chicken";
   public FoodPreference = "keto-friendly"
 

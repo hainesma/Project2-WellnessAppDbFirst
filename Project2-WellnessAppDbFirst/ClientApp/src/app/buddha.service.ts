@@ -11,7 +11,7 @@ export class BuddhaService {
   }
 
   callQuoteRandom(@Inject('BASE_URL') baseUrl: string): any {
-
+//This method calls the BuddhaController and returns an observable to be subscribed within the Buddha component itself
     let response = this.http.get<BuddhaQuote>(baseUrl + 'api/Buddha')
     return response;
   }

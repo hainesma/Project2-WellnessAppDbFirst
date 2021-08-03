@@ -14,15 +14,10 @@ export class RecipeComponent {
 
   
 
-  //This is the users preselected food preference that we need to get from the user registration and have this work
-  //also when a guest logs into the website
-
 
   public searchResult: Recipe;
   public singleRecipe: RecipeClass;
-  //This calls a random recipe from the list, it isn't how I'd like the final call to function and I need to
-  //move this into a service instead of having it located in this class, I've been building it
-  //with the wrong structure but I'm just focused on getting these calls to work, I realized the structure was wrong woops
+
   constructor(private api: RecipeService) {
     this.singleRecipe = this.getRecipe();
     
@@ -30,10 +25,11 @@ export class RecipeComponent {
   
 
 getRecipe():any {
-  //this method subscibes the observable from the Recipe
+  //this method subscibes the observable from the Recipe Service
   this.api.callRecipe().subscribe(result => {
     this.searchResult = result;
     this.singleRecipe = this.searchResult.hits[0].recipe;
+    //This next line is what calculates calories/serving for the given recipe
     this.singleRecipe.servingcalories = (this.singleRecipe.calories / this.singleRecipe.yield);
  
     console.log(this.singleRecipe)
