@@ -11,7 +11,15 @@ import { CounterComponent } from './counter/counter.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { StoicQuoteComponent } from './stoic-quote/stoic-quote.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { YogaComponent } from './yoga/yoga.component';
+import { KanyeComponent } from './kanye/kanye.component';
+import { BuddhaComponent } from './buddha/buddha.component';
+import { LiftComponent } from './lift/lift.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +27,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    StoicQuoteComponent,
+    RecipeComponent,
+    YogaComponent,
+    KanyeComponent,
+    BuddhaComponent,
+    LiftComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
