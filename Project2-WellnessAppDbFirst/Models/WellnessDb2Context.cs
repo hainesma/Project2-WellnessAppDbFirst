@@ -37,7 +37,7 @@ namespace Project2_WellnessAppDbFirst.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=WellnessDb2;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:dream-team.database.windows.net,1433;Initial Catalog=WellnessDb;Persist Security Info=False;User ID=Project1;Password=mgXtx7sThrfeFcqB;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 

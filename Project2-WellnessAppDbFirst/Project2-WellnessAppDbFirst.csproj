@@ -11,6 +11,8 @@
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
     <RootNamespace>Project2_WellnessAppDbFirst</RootNamespace>
+    <UserSecretsId>c2464c74-0e5b-4b40-ab33-789dd2605268</UserSecretsId>
+    <StartupObject>Project2_WellnessAppDbFirst.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

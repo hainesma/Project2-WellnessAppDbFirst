@@ -16,7 +16,7 @@ namespace Project2_WellnessAppDbFirst
 {
     public class Startup
     {
-        string connection = "Server=.\\SQLExpress;Database=WellnessDb2;Trusted_Connection=True;ConnectRetryCount=0;";
+        string connection = "Server=tcp:dream-team.database.windows.net,1433;Initial Catalog=WellnessDb;Persist Security Info=False;User ID=Project1;Password=mgXtx7sThrfeFcqB;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
