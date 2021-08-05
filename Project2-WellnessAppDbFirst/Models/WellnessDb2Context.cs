@@ -26,7 +26,6 @@ namespace Project2_WellnessAppDbFirst.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<DailySurveys> DailySurveys { get; set; }
         public virtual DbSet<DeviceCodes> DeviceCodes { get; set; }
         public virtual DbSet<FoodRegimens> FoodRegimens { get; set; }
         public virtual DbSet<PersistedGrants> PersistedGrants { get; set; }
@@ -37,10 +36,8 @@ namespace Project2_WellnessAppDbFirst.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=tcp:dream-team.database.windows.net,1433;Initial Catalog=WellnessDb;Persist Security Info=False;User ID=Project1;Password=mgXtx7sThrfeFcqB;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-
             }
         }
 
@@ -144,11 +141,6 @@ namespace Project2_WellnessAppDbFirst.Models
                 entity.Property(e => e.UserName).HasMaxLength(256);
             });
 
-            modelBuilder.Entity<DailySurveys>(entity =>
-            {
-                entity.Property(e => e.DailyGoal).HasMaxLength(150);
-            });
-
             modelBuilder.Entity<DeviceCodes>(entity =>
             {
                 entity.HasKey(e => e.UserCode);
@@ -225,17 +217,17 @@ namespace Project2_WellnessAppDbFirst.Models
                 entity.HasOne(d => d.AspNetUserFkNavigation)
                     .WithMany(p => p.UserProfiles)
                     .HasForeignKey(d => d.AspNetUserFk)
-                    .HasConstraintName("FK__UserProfi__AspNe__534D60F1");
+                    .HasConstraintName("FK__UserProfi__AspNe__6C190EBB");
 
                 entity.HasOne(d => d.FoodRegimenFkNavigation)
                     .WithMany(p => p.UserProfiles)
                     .HasForeignKey(d => d.FoodRegimenFk)
-                    .HasConstraintName("FK__UserProfi__FoodR__5441852A");
+                    .HasConstraintName("FK__UserProfi__FoodR__6D0D32F4");
 
                 entity.HasOne(d => d.PhilosphySchoolFkNavigation)
                     .WithMany(p => p.UserProfiles)
                     .HasForeignKey(d => d.PhilosphySchoolFk)
-                    .HasConstraintName("FK__UserProfi__Philo__5535A963");
+                    .HasConstraintName("FK__UserProfi__Philo__6E01572D");
             });
 
             OnModelCreatingPartial(modelBuilder);
