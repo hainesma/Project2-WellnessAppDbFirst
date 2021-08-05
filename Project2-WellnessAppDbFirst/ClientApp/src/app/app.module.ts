@@ -17,6 +17,7 @@ import { YogaComponent } from './yoga/yoga.component';
 import { KanyeComponent } from './kanye/kanye.component';
 import { BuddhaComponent } from './buddha/buddha.component';
 import { LiftComponent } from './lift/lift.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LiftComponent } from './lift/lift.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
+    DashboardComponent,
     StoicQuoteComponent,
     RecipeComponent,
     YogaComponent,
@@ -39,6 +41,7 @@ import { LiftComponent } from './lift/lift.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
+      { path: '', component: DashboardComponent, canActivate: [AuthorizeGuard]},
       // { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
