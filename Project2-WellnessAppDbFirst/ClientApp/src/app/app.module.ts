@@ -41,7 +41,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
-      { path: '', component: DashboardComponent, canActivate: [AuthorizeGuard]},
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthorizeGuard]},
       // { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
