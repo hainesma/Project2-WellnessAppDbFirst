@@ -3,21 +3,21 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project2_WellnessAppDbFirst.Models;
 
 namespace Project2_WellnessAppDbFirst.Migrations
 {
     [DbContext(typeof(WellnessDb2Context))]
-    partial class WellnessDb2ContextModelSnapshot : ModelSnapshot
+    [Migration("20210804204944_value")]
+    partial class value
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-
-                .HasAnnotation("ProductVersion", "3.1.15")
-
+                .HasAnnotation("ProductVersion", "3.1.17")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -218,7 +218,6 @@ namespace Project2_WellnessAppDbFirst.Migrations
 
                     b.ToTable("AspNetUsers");
                 });
-
 
             modelBuilder.Entity("Project2_WellnessAppDbFirst.Models.DailySurveys", b =>
                 {
@@ -451,23 +450,17 @@ namespace Project2_WellnessAppDbFirst.Migrations
                     b.HasOne("Project2_WellnessAppDbFirst.Models.AspNetUsers", "AspNetUserFkNavigation")
                         .WithMany("UserProfiles")
                         .HasForeignKey("AspNetUserFk")
-
-                        .HasConstraintName("FK__UserProfi__AspNe__6C190EBB");
-
+                        .HasConstraintName("FK__UserProfi__AspNe__534D60F1");
 
                     b.HasOne("Project2_WellnessAppDbFirst.Models.FoodRegimens", "FoodRegimenFkNavigation")
                         .WithMany("UserProfiles")
                         .HasForeignKey("FoodRegimenFk")
-
-                        .HasConstraintName("FK__UserProfi__FoodR__6D0D32F4");
-
+                        .HasConstraintName("FK__UserProfi__FoodR__5441852A");
 
                     b.HasOne("Project2_WellnessAppDbFirst.Models.PhilosophySchools", "PhilosphySchoolFkNavigation")
                         .WithMany("UserProfiles")
                         .HasForeignKey("PhilosphySchoolFk")
-
-                        .HasConstraintName("FK__UserProfi__Philo__6E01572D");
-
+                        .HasConstraintName("FK__UserProfi__Philo__5535A963");
                 });
 #pragma warning restore 612, 618
         }

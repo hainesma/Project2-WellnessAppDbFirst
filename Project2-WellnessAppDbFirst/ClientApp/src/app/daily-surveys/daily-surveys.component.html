@@ -1,0 +1,51 @@
+<div>
+  <h1>Assessment Manager</h1>
+  <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Take a new assessment</button>
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Assessment</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #addSurveyForm="ngForm" (ngSubmit)="addSurvey(addSurveyForm)">
+        <h3>How are you feeling today?</h3>
+        <input type="radio" id="happy" name="emotion" value="4">
+        <label for="happy">:)</label><br>
+        <input type="radio" id="okay" name="emotion" value="3">
+        <label for="okay">:\</label><br>
+        <input type="radio" id="alright" name="emotion" value="2">
+        <label for="alright">:|</label><br>
+        <input type="radio" id="bad" name="emotion" value="1">
+        <label for="bad">:(</label>
+        <br />
+        <br />
+        <input ngModel type="text" id="survey" name="goal" placeholder="New Daily Goal" />
+        <br />
+        <br />
+        <label class="switch">
+          <span class="slider">Did you achieve your previous goal?</span>
+          <br />
+          <input ngModel type="checkbox" name="achieved">
+        </label>
+        <br />
+        <br />
+        <br />
+        <div class="modal-footer">
+        </div>
+        <input class="btn btn-outline-dark" type="submit" name="Submit Assessment" />
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+</div>
+<h3>Past Asessments</h3>
+<div *ngFor="let s of surveys">
+  <a [routerLink]="['/daily-surveys',s.Id]"> Assessment:{{s.Id}}</a>
+  <button type="button" class="close" aria-label="Close" (click)="removeSurvey(s.Id)">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>

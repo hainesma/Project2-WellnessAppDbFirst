@@ -16,7 +16,9 @@ namespace Project2_WellnessAppDbFirst
 {
     public class Startup
     {
+
         string connection = "Server=tcp:dream-team.database.windows.net,1433;Initial Catalog=WellnessDb;Persist Security Info=False;User ID=Project1;Password=mgXtx7sThrfeFcqB;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,11 +29,13 @@ namespace Project2_WellnessAppDbFirst
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connection));
 
+
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<WellnessDb2Context>();
 
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
@@ -45,7 +49,9 @@ namespace Project2_WellnessAppDbFirst
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
             services.AddDbContext<WellnessDb2Context>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
