@@ -19,9 +19,19 @@ export class RecipeService {
   public searchTerm = "chicken";
   public FoodPreference = "keto-friendly"
 
+
+
   callRecipe() {
     //this method returns an observable containing an array of ALL hits returned by the edaman nutrition recipe search API
     //it will need to be subscribed in the component class later
-    let response =this.http.get<Recipe>(this.apiBase + '&q=' + this.searchTerm + '&app_id=' + this.appId + '&app_key=' + this.apiKey + "&random=true")
+
+
+
+    //The user preferences are hardcoded into this API call I believe if we change them into the method Call for call recipe as parameters
+    //we could change the recipe suggestion based on User preferences but as it is its forcing chicken/keto recipes which personally sounds good to me
+    //but this is NOT the intended function for our Application as a whole.
+    //something like callrecipe(foodPreference,searchTerms)
+
+    let response = this.http.get<Recipe>(this.apiBase + '&q=' + this.searchTerm + '&app_id=' + this.appId + '&app_key=' + this.apiKey + "&random=true")
     return response;  }
 }

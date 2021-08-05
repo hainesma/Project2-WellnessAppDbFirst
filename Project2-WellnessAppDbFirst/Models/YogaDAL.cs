@@ -24,7 +24,7 @@ namespace Project1_WellnessApp.Models
         {
 
             Random r = new Random();
-            int poseindex = r.Next(1, 49);
+            int poseindex = r.Next(0, 48);
             Pose pose = poseList[poseindex];
             return pose;
     }

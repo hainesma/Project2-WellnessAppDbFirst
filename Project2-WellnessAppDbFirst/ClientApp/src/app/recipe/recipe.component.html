@@ -6,7 +6,8 @@
   <p>Total Calories: {{singleRecipe.calories}}</p>
   <p>Servings Yield: {{singleRecipe.yield}}</p>
   <p>Calories Per Serving: {{singleRecipe.servingcalories}}</p>
-  <p>Time to Prepare:{{singleRecipe.totalTime}}</p>
+  <!--Need to hide this if time to prep is reported as zero from the API observable-->
+  <p>Time to Prepare:{{singleRecipe.totalTime}} minutes</p>
   <a href="{{singleRecipe.url}}">Recipe Instructions from {{singleRecipe.source}}</a>
 
   
