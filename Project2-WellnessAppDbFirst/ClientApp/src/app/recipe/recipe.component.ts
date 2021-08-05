@@ -26,6 +26,12 @@ export class RecipeComponent {
 
 getRecipe():any {
   //this method subscibes the observable from the Recipe Service
+  //here in order to change the functionality from hardcoded into Keto/chicken we will have to grab the information from the user survey table
+  //so I was thinking something like let searchTerm=user.searchTerm & let foodPreference=user.foodPreference
+  //then the api call would look something like the following
+  //this.api.callRecipe(searchTerm, foodprefernce)
+  //I'm still unsure how to access these tables though
+
   this.api.callRecipe().subscribe(result => {
     this.searchResult = result;
     this.singleRecipe = this.searchResult.hits[0].recipe;
