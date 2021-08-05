@@ -1,11 +1,11 @@
 export interface UserProfile {
     id:                          number;
     firstName:                   string;
-    birthDate:                   string;
+    birthDate:                   Date;
     aspNetUserFk:                string;
     foodRegimenFk:               number;
-    philosphySchoolFk:           number;
+    philosophySchoolFk:           number;
     aspNetUserFkNavigation:      null;
     foodRegimenFkNavigation:     null;
-    philosphySchoolFkNavigation: null;
+    philosophySchoolFkNavigation: null;
 }

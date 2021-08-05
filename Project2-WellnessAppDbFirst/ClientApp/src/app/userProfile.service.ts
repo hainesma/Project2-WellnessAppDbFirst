@@ -17,7 +17,7 @@ export class UserProfileService {
         return this.http.get<UserProfile[]>(baseUrl + 'UserProfiles')
   }
 
-  postUserProfiles(@Inject('BASE_URL') baseUrl: string): any {
+  postUserProfile(@Inject('BASE_URL') baseUrl: string, profile: UserProfile): any {
     return this.http.post<UserProfile>(baseUrl + 'UserProfiles', this.profile)
   }
 }
