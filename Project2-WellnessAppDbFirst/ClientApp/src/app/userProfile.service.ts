@@ -10,8 +10,9 @@ import { UserProfile } from "./userProfile";
 
 export class UserProfileService {
   profile: UserProfile;
-  constructor(private http: HttpClient) {
-
+  userProfileUrl: string;
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.userProfileUrl = baseUrl + 'api/UserProfiles'
   }
 
   getUserProfiles(@Inject('BASE_URL') baseUrl: string): any {
@@ -20,15 +21,14 @@ export class UserProfileService {
 
   
 
-  postUserProfile(baseUrl: string, profile: UserProfile): Observable<UserProfile> {
+  postUserProfile(profile: UserProfile): Observable<UserProfile> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
     console.log(profile);
-    return this.http.post<UserProfile>((baseUrl + 'api/UserProfiles'), profile, { headers: headers })
+    return this.http.post<UserProfile>(this.userProfileUrl, profile, { headers: headers })
   }
 }
 
 
-// @Inject('BASE_URL') baseUrl: string,

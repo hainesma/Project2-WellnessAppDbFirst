@@ -44,7 +44,7 @@ export class UserProfileComponent {
 
     }
     console.log(profile);
-    this.userProfileService.postUserProfile(getBaseUrl(), profile)
+    this.userProfileService.postUserProfile(profile).subscribe();
     
   }
 }
