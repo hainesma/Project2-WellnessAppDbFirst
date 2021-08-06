@@ -45,8 +45,6 @@ export class DailySurveysComponent {
       achieved = false;
     }
 
-    let solution = form.form.value.solution;
-    let priority = form.form.value.priority;
     let surveys: DailySurveys = { Id: 0, UserId: 0, EmotionLevel: emotion, DailyGoal: goal, PreviousGoalAchieved: achieved}
     this.http.post<DailySurveys>(this.apiBase + 'api/dailysurveys', surveys).subscribe(result => {
       console.log(result)
