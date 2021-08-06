@@ -12,10 +12,19 @@ import { UserProfileService } from '../userProfile.service';
 })
 /** UserProfile component*/
 export class UserProfileComponent {
-    /** UserProfile ctor */
+  /** UserProfile ctor */
+
+
+  currentUserId: any;
+  
+
+
     constructor(private userProfileService: UserProfileService, private authorize: AuthorizeService) {
-     // let currentUserId: any = this.authorize.getUser().subscribe;
-      
+    
+      this.authorize.getUser().subscribe((result): any => {
+        console.log(result)
+        this.currentUserId = result;
+      })
   }
 
   postUserProfile(form: NgForm) {
@@ -25,10 +34,10 @@ export class UserProfileComponent {
     let foodRegimenFk = form.form.value.foodRegimenFk;
     let philosophySchoolFk = form.form.value.philosophySchoolFk;
     let profile: UserProfile = {
-      id: 0,
+      
       firstName: firstName,
       birthDate: birthDate,
-      aspNetUserFk: "",
+      aspNetUserFk: this.currentUserId.sub,
       foodRegimenFk: foodRegimenFk, philosophySchoolFk: philosophySchoolFk, aspNetUserFkNavigation: null,
       foodRegimenFkNavigation: null,
       philosophySchoolFkNavigation: null

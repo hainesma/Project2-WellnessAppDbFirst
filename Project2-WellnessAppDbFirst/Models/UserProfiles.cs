@@ -14,10 +14,10 @@ namespace Project2_WellnessAppDbFirst.Models
         public DateTime? BirthDate { get; set; }
         public string AspNetUserFk { get; set; }
         public int? FoodRegimenFk { get; set; }
-        public int? PhilosphySchoolFk { get; set; }
+        public int? PhilosophySchoolFk { get; set; }
 
         public virtual AspNetUsers AspNetUserFkNavigation { get; set; }
         public virtual FoodRegimens FoodRegimenFkNavigation { get; set; }
-        public virtual PhilosophySchools PhilosphySchoolFkNavigation { get; set; }
+        public virtual PhilosophySchools PhilosophySchoolFkNavigation { get; set; }
     }
 }

@@ -212,7 +212,7 @@ namespace Project2_WellnessAppDbFirst.Models
 
                 entity.Property(e => e.FoodRegimenFk).HasColumnName("FoodRegimenFK");
 
-                entity.Property(e => e.PhilosphySchoolFk).HasColumnName("PhilosphySchoolFK");
+                entity.Property(e => e.PhilosophySchoolFk).HasColumnName("PhilosophySchoolFK");
 
                 entity.HasOne(d => d.AspNetUserFkNavigation)
                     .WithMany(p => p.UserProfiles)
@@ -224,9 +224,9 @@ namespace Project2_WellnessAppDbFirst.Models
                     .HasForeignKey(d => d.FoodRegimenFk)
                     .HasConstraintName("FK__UserProfi__FoodR__6D0D32F4");
 
-                entity.HasOne(d => d.PhilosphySchoolFkNavigation)
+                entity.HasOne(d => d.PhilosophySchoolFkNavigation)
                     .WithMany(p => p.UserProfiles)
-                    .HasForeignKey(d => d.PhilosphySchoolFk)
+                    .HasForeignKey(d => d.PhilosophySchoolFk)
                     .HasConstraintName("FK__UserProfi__Philo__6E01572D");
             });
 

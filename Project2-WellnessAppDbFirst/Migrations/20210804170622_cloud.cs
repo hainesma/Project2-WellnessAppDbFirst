@@ -222,7 +222,7 @@ namespace Project2_WellnessAppDbFirst.Migrations
                     BirthDate = table.Column<DateTime>(type: "date", nullable: true),
                     AspNetUserFK = table.Column<string>(maxLength: 450, nullable: true),
                     FoodRegimenFK = table.Column<int>(nullable: true),
-                    PhilosphySchoolFK = table.Column<int>(nullable: true)
+                    PhilosophySchoolFK = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -241,7 +241,7 @@ namespace Project2_WellnessAppDbFirst.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK__UserProfi__Philo__6E01572D",
-                        column: x => x.PhilosphySchoolFK,
+                        column: x => x.PhilosophySchoolFK,
                         principalTable: "PhilosophySchools",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -318,9 +318,9 @@ namespace Project2_WellnessAppDbFirst.Migrations
                 column: "FoodRegimenFK");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserProfiles_PhilosphySchoolFK",
+                name: "IX_UserProfiles_PhilosophySchoolFK",
                 table: "UserProfiles",
-                column: "PhilosphySchoolFK");
+                column: "PhilosophySchoolFK");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
