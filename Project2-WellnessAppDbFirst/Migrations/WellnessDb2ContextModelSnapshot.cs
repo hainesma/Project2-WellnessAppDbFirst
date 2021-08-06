@@ -15,7 +15,9 @@ namespace Project2_WellnessAppDbFirst.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.17")
+
+                .HasAnnotation("ProductVersion", "3.1.15")
+
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -216,6 +218,7 @@ namespace Project2_WellnessAppDbFirst.Migrations
 
                     b.ToTable("AspNetUsers");
                 });
+
 
             modelBuilder.Entity("Project2_WellnessAppDbFirst.Models.DailySurveys", b =>
                 {
@@ -448,17 +451,23 @@ namespace Project2_WellnessAppDbFirst.Migrations
                     b.HasOne("Project2_WellnessAppDbFirst.Models.AspNetUsers", "AspNetUserFkNavigation")
                         .WithMany("UserProfiles")
                         .HasForeignKey("AspNetUserFk")
-                        .HasConstraintName("FK__UserProfi__AspNe__534D60F1");
+
+                        .HasConstraintName("FK__UserProfi__AspNe__6C190EBB");
+
 
                     b.HasOne("Project2_WellnessAppDbFirst.Models.FoodRegimens", "FoodRegimenFkNavigation")
                         .WithMany("UserProfiles")
                         .HasForeignKey("FoodRegimenFk")
-                        .HasConstraintName("FK__UserProfi__FoodR__5441852A");
+
+                        .HasConstraintName("FK__UserProfi__FoodR__6D0D32F4");
+
 
                     b.HasOne("Project2_WellnessAppDbFirst.Models.PhilosophySchools", "PhilosphySchoolFkNavigation")
                         .WithMany("UserProfiles")
                         .HasForeignKey("PhilosphySchoolFk")
-                        .HasConstraintName("FK__UserProfi__Philo__5535A963");
+
+                        .HasConstraintName("FK__UserProfi__Philo__6E01572D");
+
                 });
 #pragma warning restore 612, 618
         }
