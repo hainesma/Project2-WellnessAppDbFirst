@@ -45,6 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\app\survey-details\survey-details.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\daily-surveys\DailySurveys.ts" />
   </ItemGroup>
 

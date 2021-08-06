@@ -15,6 +15,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { DailySurveysComponent } from './daily-surveys/daily-surveys.component';
+import { SurveyDetailsComponent } from './survey-details/survey-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { DailySurveysComponent } from './daily-surveys/daily-surveys.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    DailySurveysComponent
+    DailySurveysComponent,
+    SurveyDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,7 +36,8 @@ import { DailySurveysComponent } from './daily-surveys/daily-surveys.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-      { path:  'daily-surveys', component: DailySurveysComponent}
+      { path: 'daily-surveys', component: DailySurveysComponent },
+      {path: 'survey/:Id', component: SurveyDetailsComponent},
     ])
   ],
   providers: [

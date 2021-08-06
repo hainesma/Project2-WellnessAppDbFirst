@@ -27,7 +27,7 @@
         <label class="switch">
           <span class="slider">Did you achieve your previous goal?</span>
           <br />
-          <input ngModel type="checkbox" name="achieved">
+          <input ngModel type="checkbox" name="previousgoalahcieved">
         </label>
         <br />
         <br />
@@ -44,7 +44,7 @@
 </div>
 <h3>Past Asessments</h3>
 <div *ngFor="let s of surveys">
-  <a [routerLink]="['/daily-surveys',s.Id]"> Assessment:{{s.Id}}</a>
+  <a [routerLink]="['/survey',s.Id]"> Assessment:{{s.Id}}</a>
   <button type="button" class="close" aria-label="Close" (click)="removeSurvey(s.Id)">
     <span aria-hidden="true">×</span>
   </button>

@@ -30,13 +30,12 @@ export class DailySurveysComponent {
     this.apiBase = baseUrl;
     this.http = http;
   }
-
  
   /** function to add surveys to database */
   addSurvey(form: NgForm) {
     console.log(form.form.value.Id)
 
-    let Id = form.form.value.id;
+    let Id = form.form.value.Id;
     let emotion = form.form.value.emotion;
     let goal = form.form.value.goal;
     let achieved = form.form.value.achieved;
@@ -56,6 +55,15 @@ export class DailySurveysComponent {
     });
   }
 
+  removeSurvey(index: number) {
+    let id: number = index;
+    console.log(index);
+    console.log(id);
+    this.http.delete<DailySurveys>(this.apiBase + 'api/dailysurveys/' + id).subscribe(result => {
+      console.log(result)
+      this.surveys.splice(id, 1)
+    });
+  }
 
 
   //* These open and close the survey modal*/
