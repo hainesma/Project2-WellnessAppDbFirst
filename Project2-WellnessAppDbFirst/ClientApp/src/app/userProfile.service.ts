@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { UserProfile } from "./userProfile";
@@ -18,10 +18,15 @@ export class UserProfileService {
     return this.http.get<UserProfile[]>(baseUrl + 'api/UserProfiles')
   }
 
-  postUserProfile(profile: UserProfile): Observable<UserProfile> {
+  
 
+  postUserProfile(baseUrl: string, profile: UserProfile): Observable<UserProfile> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
 
-    return this.http.post<UserProfile>((@Inject('BASE_URL' + 'api/UserProfiles')), profile)
+    console.log(profile);
+    return this.http.post<UserProfile>((baseUrl + 'api/UserProfiles'), profile, { headers: headers })
   }
 }
 

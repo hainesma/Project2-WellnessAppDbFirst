@@ -31,8 +31,8 @@ export class UserProfileComponent {
 
     let firstName = form.form.value.firstName;
     let birthDate = form.form.value.birthDate;
-    let foodRegimenFk = form.form.value.foodRegimenFk;
-    let philosophySchoolFk = form.form.value.philosophySchoolFk;
+    let foodRegimenFk = parseInt(form.form.value.foodRegimenFk);
+    let philosophySchoolFk = parseInt(form.form.value.philosophySchoolFk);
     let profile: UserProfile = {
       
       firstName: firstName,
