@@ -8,37 +8,41 @@
         <span aria-hidden="true">×</span>
       </button>
     </div>
-    <div class="modal-body">
+     <div class="modal-body">
       <form #addSurveyForm="ngForm" (ngSubmit)="addSurvey(addSurveyForm)">
         <h3>How are you feeling today?</h3>
-          <input ngModel type="radio" id="happy" name="emotion" value="4">
-          <label ngModel for="happy">:)</label><br>
-          <input ngModel type="radio" id="okay" name="emotion" value="3">
-          <label ngModel for="okay">:\</label><br>
-          <input ngModel type="radio" id="alright" name="emotion" value="2">
-          <label ngModel for="alright">:|</label><br>
-          <input ngModel type="radio" id="bad" name="emotion" value="1">
+          <input  type="radio" id="survey" name="emotion" value="4">
+          <label  for="happy">:)</label>
+          <input  type="radio" id="survey" name="emotion" value="3">
+          <label  for="okay">:\</label>
+          <input  type="radio" id="survey" name="emotion" value="2">
+          <label  for="alright">:|</label>
+          <input  type="radio" id="survey" name="emotion" value="1">
           <label for="bad">:(</label>
             <br />
             <br />
+             <h3>Set a goal for today</h3>
             <input ngModel type="text" id="survey" name="goal" placeholder="New Daily Goal" />
             <br />
             <br />
             <label class="switch">
-              <span class="slider">Did you achieve your previous goal?</span>
+              <span class="slider">Did you accomplish your previous goal?</span>
               <br />
-              <input ngModel type="checkbox" name="previousgoalahcieved">
+              <select>
+                <option>Select One</option>
+                <option ngModel id="survey" name="previousgoalahcieved" value="1">Yes</option>
+                <option ngModel id="survey" name="previousgoalahcieved"  value="0">No</option>
+              </select>
             </label>
             <br />
             <br />
             <br />
             <div class="modal-footer">
             </div>
-            <input class="btn btn-outline-dark" type="submit" name="Submit Assessment" />
-</form>
+            <input class="btn btn-outline-dark" type="submit" name="Submit Assessment" (click)="modal.close('Save click')"/>
+      </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
     </div>
   </ng-template>
 </div>

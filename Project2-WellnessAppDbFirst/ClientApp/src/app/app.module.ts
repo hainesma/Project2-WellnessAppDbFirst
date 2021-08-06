@@ -35,7 +35,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    DailySurveysComponent,
     SurveyDetailsComponent,
     DailySurveysComponent,
     DashboardComponent,
@@ -59,7 +58,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       { path: 'counter', component: CounterComponent },
       { path: 'daily-surveys', component: DailySurveysComponent },
       {path: 'survey/:Id', component: SurveyDetailsComponent},
-      { path:  'daily-surveys', component: DailySurveysComponent},
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthorizeGuard]},
       { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthorizeGuard] },
 

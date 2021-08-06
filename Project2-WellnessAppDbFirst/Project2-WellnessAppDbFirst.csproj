@@ -45,6 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\daily-survey.service.ts" />
     <None Remove="ClientApp\src\app\daily-surveys\DailySurveys.ts" />
   </ItemGroup>
 

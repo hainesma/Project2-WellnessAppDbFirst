@@ -3,6 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { DailySurveys } from './DailySurveys'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
+import { DailySurveyService } from '../daily-survey.service';
 
 @Component({
     selector: 'app-daily-surveys',
