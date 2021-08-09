@@ -20,6 +20,7 @@ import { KanyeComponent } from './kanye/kanye.component';
 import { BuddhaComponent } from './buddha/buddha.component';
 import { LiftComponent } from './lift/lift.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GuestDashComponent } from './guest-dash/guest-dash.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CounterComponent,
 
     DashboardComponent,
+    GuestDashComponent,
     UserProfileComponent,
 
     StoicQuoteComponent,
