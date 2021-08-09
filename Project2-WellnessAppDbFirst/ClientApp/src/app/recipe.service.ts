@@ -34,4 +34,17 @@ export class RecipeService {
 
     let response = this.http.get<Recipe>(this.apiBase + '&q=' + this.searchTerm + '&app_id=' + this.appId + '&app_key=' + this.apiKey + "&random=true")
     return response;  }
+
+  callRecipeSpecific(searchTerm:string,health:string) {
+    //this method returns an observable containing an array of ALL hits returned by the edaman nutrition recipe search API
+    //it will need to be subscribed in the component class later
+
+
+    let response = this.http.get<Recipe>(this.apiBase + '&q=' + searchTerm + '&app_id=' + this.appId + '&app_key=' + this.apiKey +'&health='+health+ "&random=true")
+    return response;
+  }
 }
+
+
+
+
