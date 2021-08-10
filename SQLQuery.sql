@@ -16,3 +16,12 @@ AspNetUserFK NVARCHAR(450) FOREIGN KEY REFERENCES AspNetUsers(Id),
 FoodRegimenFK INT FOREIGN KEY REFERENCES FoodRegimens(Id),
 PhilosphySchoolFK INT FOREIGN KEY REFERENCES PhilosophySchools(Id),
 )
+
+CREATE TABLE [dbo].[DailySurveys](
+	[Id] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[UserId] NVARCHAR(450) FOREIGN KEY REFERENCES AspNetUsers(Id) NULL,
+	[EmotionLevel] [int] NULL,
+	[EnergyLevel] INT,
+	[DailyGoal] [nvarchar](150) NULL,
+	[PreviousGoalAchieved] [bit] NULL,
+)
