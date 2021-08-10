@@ -52,14 +52,15 @@ export class DailySurveysComponent {
     let UserId = parseInt(form.form.value.aspNetUserFk);
     let emotion = form.form.value.emotion;
     let goal = form.form.value.goal;
-    let achieved = form.form.value.achieved;
+    let achieved = form.form.value.previousGoalAchieved;
     
 
     if (achieved === "") {
       achieved = false;
     }
 
-    let surveys: DailySurveys = { Id: 0, UserId: this.currentUserId.sub, EmotionLevel: emotion, DailyGoal: goal, PreviousGoalAchieved: achieved}
+    let surveys: DailySurveys = { Id: 0, UserId: this.currentUserId.sub, EmotionLevel: emotion, DailyGoal: goal, previousGoalAchieved: achieved}
+    console.log(surveys)
     this.http.post<DailySurveys>(this.apiBase + 'api/dailysurveys', surveys).subscribe(result => {
       console.log(result)
 

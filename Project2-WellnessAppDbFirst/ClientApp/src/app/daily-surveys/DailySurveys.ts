@@ -3,5 +3,5 @@ export class DailySurveys {
   UserId: number;
   EmotionLevel: number; 
   DailyGoal: string; 
-  PreviousGoalAchieved: boolean; 
+  previousGoalAchieved: boolean; 
 }
