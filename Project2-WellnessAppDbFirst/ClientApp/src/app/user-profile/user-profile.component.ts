@@ -17,7 +17,7 @@ export class UserProfileComponent {
 
   currentUserId: any;
   
-
+  isProfileSet: boolean = false;
 
     constructor(private userProfileService: UserProfileService, private authorize: AuthorizeService) {
     
@@ -47,4 +47,6 @@ export class UserProfileComponent {
     this.userProfileService.postUserProfile(profile).subscribe();
     
   }
+
+
 }

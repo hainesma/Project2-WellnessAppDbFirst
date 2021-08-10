@@ -1,6 +1,12 @@
 
 <!--This is the dashboard page need to load active user First Name into this html page-->
 
+<div *ngIf="!isUserProfileFilledOut">
+  <app-user-profile></app-user-profile>
+
+</div>
+
+
 <div>
   <h1 style="text-align:center">Welcome </h1>
 </div>
