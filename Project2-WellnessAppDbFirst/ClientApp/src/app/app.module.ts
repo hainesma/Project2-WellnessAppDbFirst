@@ -21,6 +21,7 @@ import { BuddhaComponent } from './buddha/buddha.component';
 import { LiftComponent } from './lift/lift.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GuestDashComponent } from './guest-dash/guest-dash.component';
+import { NewUserWelcomeComponent } from './new-user-welcome/new-user-welcome.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { GuestDashComponent } from './guest-dash/guest-dash.component';
     YogaComponent,
     KanyeComponent,
     BuddhaComponent,
-    LiftComponent
+    LiftComponent,
+    NewUserWelcomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

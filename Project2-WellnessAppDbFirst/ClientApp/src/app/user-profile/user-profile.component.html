@@ -3,6 +3,7 @@
 
   <div>
     <form #profileForm="ngForm" (ngSubmit)="postUserProfile(profileForm)">
+      <p>First name:</p>
       <input ngModel type="text" id="userProfile" name="firstName" placeholder="First Name" />
       <br />
       <input ngModel type="date" id="userProfile" name="birthDate" placeholder="Birth Date" />
