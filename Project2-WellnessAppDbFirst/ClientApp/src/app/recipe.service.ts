@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Recipe} from './recipe/recipe'
+import { Recipe } from './recipe/recipe';
+import { Secret } from './secrets';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class RecipeService {
-  constructor(private http: HttpClient) { }
+  
+  
 
-
-  public apiKey = "207156f6a227e7d81a80d58d76ab0574";
+  constructor(private http: HttpClient, ) { }
+  
   public appId = "e3f8630c"
   public apiBase = "https://api.edamam.com/api/recipes/v2?type=public";
   /*  This is the search term we are searching we need to figure out what to do with*/
@@ -32,6 +38,20 @@ export class RecipeService {
     //but this is NOT the intended function for our Application as a whole.
     //something like callrecipe(foodPreference,searchTerms)
 
-    let response = this.http.get<Recipe>(this.apiBase + '&q=' + this.searchTerm + '&app_id=' + this.appId + '&app_key=' + this.apiKey + "&random=true")
+    // Construct the API call
+    let response = this.http.get<Recipe>(this.apiBase + '&q=' + this.searchTerm + '&app_id=' + this.appId + '&app_key=' + Secret.recipeKey + "&random=true")
     return response;  }
+
+  callRecipeSpecific(searchTerm:string,health:string) {
+    //this method returns an observable containing an array of ALL hits returned by the edaman nutrition recipe search API
+    //it will need to be subscribed in the component class later
+
+
+    let response = this.http.get<Recipe>(this.apiBase + '&q=' + searchTerm + '&app_id=' + this.appId + '&app_key=' + Secret.recipeKey +'&health='+health+ "&random=true")
+    return response;
+  }
 }
+
+
+
+

@@ -12,30 +12,39 @@ import { UserProfileService } from '../userProfile.service';
 })
 /** UserProfile component*/
 export class UserProfileComponent {
-    /** UserProfile ctor */
+  /** UserProfile ctor */
+
+
+  currentUserId: any;
+  
+
+
     constructor(private userProfileService: UserProfileService, private authorize: AuthorizeService) {
-     // let currentUserId: any = this.authorize.getUser().subscribe;
-      
+    
+      this.authorize.getUser().subscribe((result): any => {
+        console.log(result)
+        this.currentUserId = result;
+      })
   }
 
   postUserProfile(form: NgForm) {
 
     let firstName = form.form.value.firstName;
     let birthDate = form.form.value.birthDate;
-    let foodRegimenFk = form.form.value.foodRegimenFk;
-    let philosophySchoolFk = form.form.value.philosophySchoolFk;
+    let foodRegimenFk = parseInt(form.form.value.foodRegimenFk);
+    let philosophySchoolFk = parseInt(form.form.value.philosophySchoolFk);
     let profile: UserProfile = {
-      id: 0,
+      
       firstName: firstName,
       birthDate: birthDate,
-      aspNetUserFk: "",
+      aspNetUserFk: this.currentUserId.sub,
       foodRegimenFk: foodRegimenFk, philosophySchoolFk: philosophySchoolFk, aspNetUserFkNavigation: null,
       foodRegimenFkNavigation: null,
       philosophySchoolFkNavigation: null
 
     }
     console.log(profile);
-    this.userProfileService.postUserProfile(getBaseUrl(), profile)
+    this.userProfileService.postUserProfile(profile).subscribe();
     
   }
 }

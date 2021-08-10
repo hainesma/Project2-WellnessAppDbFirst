@@ -79,6 +79,7 @@ namespace Project2_WellnessAppDbFirst.Controllers
         [HttpPost]
         public async Task<ActionResult<UserProfiles>> PostUserProfiles(UserProfiles userProfiles)
         {
+            Console.WriteLine(userProfiles);
             _context.UserProfiles.Add(userProfiles);
             await _context.SaveChangesAsync();
 

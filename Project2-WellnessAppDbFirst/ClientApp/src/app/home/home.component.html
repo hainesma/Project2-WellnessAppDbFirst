@@ -4,7 +4,7 @@
   Once we start to reconfigure the front end towards its final form these will have to be moved to the dashboard, and the User registration/Log in splash
   Should be the first page as I understand currently -Troy-->
 <app-user-profile></app-user-profile>
-<app-stoic-quote></app-stoic-quote>
+
 <ng-container>
   <h1 style="text-align:center">Welcome to Project1! </h1>
 
@@ -19,12 +19,14 @@
 </ng-container>
 
 <!--I think the *ngIf with the async pipe should load this div if the user is logged in but i'm not sure 100% and I can't test it from
-  this IP address-->
-<!--*ngIf="isAuthenticated() | async"-->
-<!--<div>
+  this IP address
+*ngIf="isAuthenticated() | async"-->
+<div *ngIf="isLoggedIn">
   <app-dashboard></app-dashboard>
-</div>-->
-
+</div>
+<div *ngIf="!isLoggedIn">
+  <app-guest-dash></app-guest-dash>
+</div>
 
 
 

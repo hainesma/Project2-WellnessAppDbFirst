@@ -352,8 +352,8 @@ namespace Project2_WellnessAppDbFirst.Migrations
                         .HasColumnName("FoodRegimenFK")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PhilosphySchoolFk")
-                        .HasColumnName("PhilosphySchoolFK")
+                    b.Property<int?>("philosophySchoolFk")
+                        .HasColumnName("philosophySchoolFK")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -362,7 +362,7 @@ namespace Project2_WellnessAppDbFirst.Migrations
 
                     b.HasIndex("FoodRegimenFk");
 
-                    b.HasIndex("PhilosphySchoolFk");
+                    b.HasIndex("philosophySchoolFk");
 
                     b.ToTable("UserProfiles");
                 });
@@ -430,9 +430,9 @@ namespace Project2_WellnessAppDbFirst.Migrations
                         .HasForeignKey("FoodRegimenFk")
                         .HasConstraintName("FK__UserProfi__FoodR__6D0D32F4");
 
-                    b.HasOne("Project2_WellnessAppDbFirst.Models.PhilosophySchools", "PhilosphySchoolFkNavigation")
+                    b.HasOne("Project2_WellnessAppDbFirst.Models.PhilosophySchools", "philosophySchoolFkNavigation")
                         .WithMany("UserProfiles")
-                        .HasForeignKey("PhilosphySchoolFk")
+                        .HasForeignKey("philosophySchoolFk")
                         .HasConstraintName("FK__UserProfi__Philo__6E01572D");
                 });
 #pragma warning restore 612, 618
