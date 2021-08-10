@@ -4,6 +4,9 @@ import { DailySurveys } from './DailySurveys'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { DailySurveyService } from '../daily-survey.service';
+import { UserProfile } from '../userProfile';
+import { UserProfileService } from '../userProfile.service';
+import { AuthorizeService } from '../../api-authorization/authorize.service';
 
 @Component({
     selector: 'app-daily-surveys',
@@ -20,9 +23,10 @@ export class DailySurveysComponent {
   closeResult: string;
   public apiBase: string = "";
   public http: HttpClient = null;
+  currentUserId: any;
 
     /** DailySurveys ctor */ 
-  constructor(private modalService: NgbModal, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private modalService: NgbModal, http: HttpClient, private userProfileService: UserProfileService, private authorize: AuthorizeService, @Inject('BASE_URL') baseUrl: string) {
     http.get<DailySurveys[]>(baseUrl + 'api/dailysurveys').subscribe(result => {
       this.surveys = result;
       console.log(this.surveys);
@@ -30,6 +34,13 @@ export class DailySurveysComponent {
 
     this.apiBase = baseUrl;
     this.http = http;
+    {
+      this.authorize.getUser().subscribe((result): any => {
+        console.log(result)
+        this.currentUserId = result;
+      })
+    }
+
   }
  
   /** function to add surveys to database */
@@ -37,6 +48,8 @@ export class DailySurveysComponent {
     console.log(form.form.value.Id)
 
     let Id = form.form.value.Id;
+    /** Attempting to connect Surveys to userprofiles  */
+    let UserId = parseInt(form.form.value.aspNetUserFk);
     let emotion = form.form.value.emotion;
     let goal = form.form.value.goal;
     let achieved = form.form.value.achieved;
@@ -46,7 +59,7 @@ export class DailySurveysComponent {
       achieved = false;
     }
 
-    let surveys: DailySurveys = { Id: 0, UserId: 0, EmotionLevel: emotion, DailyGoal: goal, PreviousGoalAchieved: achieved}
+    let surveys: DailySurveys = { Id: 0, UserId: this.currentUserId.sub, EmotionLevel: emotion, DailyGoal: goal, PreviousGoalAchieved: achieved}
     this.http.post<DailySurveys>(this.apiBase + 'api/dailysurveys', surveys).subscribe(result => {
       console.log(result)
 
